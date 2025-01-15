@@ -4,7 +4,10 @@
   "description": "A simple image upload service using Cloudinary",
   "main": "index.js",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  
   "keywords": [
     "cloudinary",
     "image upload",
