@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import postRouter from "./src/routers/postRouters.js";
 import apiRouter from "./src/routers/apiRouter.js";
 import v1Router from "./src/routers/v1Router.js";
+
+import ip from "ip";
+
 import {
   createPost,
   deletePostById,
@@ -21,11 +24,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", v1Router);
+const ipaddress = ip.address();
 app.get("/ping", (req, res) => {
   console.log(req.query);
   console.log(req.body);
   console.log(req.user);
-  return res.json({ message: "pong" });
+  return res.json({ message: "pong " + ipaddress });
 });
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
