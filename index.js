@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", v1Router);
-app.get("/ping", isAuthenticated, (req, res) => {
+app.get("/ping", (req, res) => {
   console.log(req.query);
   console.log(req.body);
   console.log(req.user);
